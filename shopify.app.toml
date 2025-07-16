@@ -3,14 +3,14 @@
 client_id = "de20627bdf7b823e6450badb6a713f00"
 name = "Countdown Timer App"
 handle = "countdown-timer-app-16"
-application_url = "https://davidson-justin-injured-drivers.trycloudflare.com"
+application_url = "https://organizing-tier-lanes-stan.trycloudflare.com"
 embedded = true
 
 [webhooks]
 api_version = "2025-07"
 
 [auth]
-redirect_urls = ["https://davidson-justin-injured-drivers.trycloudflare.com/auth/callback", "https://davidson-justin-injured-drivers.trycloudflare.com/auth/shopify/callback", "https://davidson-justin-injured-drivers.trycloudflare.com/api/auth/callback"]
+redirect_urls = ["https://organizing-tier-lanes-stan.trycloudflare.com/auth/callback", "https://organizing-tier-lanes-stan.trycloudflare.com/auth/shopify/callback", "https://organizing-tier-lanes-stan.trycloudflare.com/api/auth/callback"]
 
 [pos]
 embedded = false
