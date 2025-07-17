@@ -7,23 +7,23 @@ const router = express.Router()
 router.use(verifyRequest)
 
 // create a new timer
-router.post('/',async(req,res)=>{
-    const shop = res.locals.shop
-
-    const existing = await Timer.findOne({ shop });
-
-    if (existing) {
-      Object.assign(existing, req.body);
-      await existing.save();
-      return res.json(existing);
+router.post("/", async (req, res) => {
+    const { title, startTime, endTime } = req.body;
+  
+    if (!title || !startTime || !endTime) {
+      return res.status(400).json({ error: "All fields are required" });
     }
   
-    const timer = new Timer({ ...req.body, shop });
-    await timer.save();
-    res.status(201).json(timer);
-    console.log(shop,"Shop")
-})
-
+    try {
+      const newTimer = new Timer({ title, startTime, endTime });
+      await newTimer.save();
+      res.status(201).json(newTimer);
+    } catch (error) {
+      console.error("Failed to create timer", error);
+      res.status(500).json({ error: "Internal server error" });
+    }
+  });
+  
 // get an existing timer
 router.get("/", async (req, res) => {
     const shop = res.locals.shop;
